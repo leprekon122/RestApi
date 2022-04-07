@@ -1,0 +1,111 @@
+{% extends 'main/layout.html'%}
+
+
+{%block title%}Main page{%endblock%}
+
+{%block content%}
+<div class="container">
+
+    <br>
+    <div class="alert alert-dark" id="panel">
+        <a class="btn btn-dark" data-target="#create" data-toggle="modal" id="create_news">Create News</a>
+        <a class="btn btn-dark" href="{% url 'comments'%}">Comments</a>
+    </div>
+
+
+
+
+    <table class="table table-dark table-bordered table-hover">
+        <thead>
+        <tr>
+            <th>title</th>
+            <th>creation_date</th>
+            <th>author_name</th>
+            <th>action</th>
+        </tr>
+        </thead>
+        {%for el in model%}
+        <tbody>
+        <tr>
+            <th><a class="text-light" href="{{el.link}}">{{el.title}}</a></th>
+            <th>{{el.creation_date}}</th>
+            <th>{{el.author_name}}</th>
+            <th>
+                <a href="{% url 'news_update' el.id%}" class="btn btn-light"  onclick="return edits()">Edit</a>
+            </th>
+        </tr>
+        </tbody>
+        {%endfor%}
+    </table>
+    <div class="modal" tabindex="-1" role="dialog" id="Login">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Login</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form method="get">
+                    {%csrf_token%}
+                    <div class="modal-body">
+                        <input type="text" class="form-control" name="username">
+                        <input type="password" class="form-control" name="password">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary" name="login" value="login">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" tabindex="-1" role="dialog" id="create">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form method="post">
+                    {%csrf_token%}
+                    <div class="modal-body">
+                        {{form}}
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary" name="Create">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+<script>
+ function panel(){
+    var user = document.getElementById('username')
+    console.log(user.innerHTML)
+    if(user.innerHTML == 'AnonymousUser'){
+        var panel = document.getElementById('panel').style.display = 'none'
+    } else {
+        var panel = document.getElementById('panel').style.display = 'run-in';
+    }
+ }
+ panel()
+
+
+ function edits(){
+    var user = document.getElementById('username')
+    if(user.innerHTML == 'AnonymousUser'){
+        window.alert('you must login')
+        return false;
+        } else {
+            return true
+        }
+ }
+</script>
+
+</div>
+{%endblock%}
