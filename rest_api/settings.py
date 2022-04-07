@@ -27,7 +27,7 @@ SECRET_KEY = os.path.join("rest_api/key.py")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['est-api111.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['rest-api111.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
