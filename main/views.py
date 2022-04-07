@@ -15,7 +15,6 @@ class MainPage(generics.GenericAPIView,
     @staticmethod
     def get(request):
         if request.GET.get('login'):
-            print('login')
             username = request.GET.get('username')
             password = request.GET.get('password')
 
