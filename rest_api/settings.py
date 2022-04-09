@@ -75,28 +75,27 @@ WSGI_APPLICATION = 'rest_api.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 """deploy db creditionals"""
-# DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#        'NAME': 'db0v734i7dfi1s',
-#        'USER': 'mhlssldoiqycfi',
-#        'PASSWORD': '023dce9ee5beb6fe9437aef3004a65a953c608a817f0fa52daabda7b9f3f2289',
-#        'HOST': 'ec2-63-32-248-14.eu-west-1.compute.amazonaws.com',
-#        'PORT': '5432'
-#    }
-# }
-
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'rest_api',
-        'USER': 'profit',
-        'PASSWORD': '12345',
-        'HOST': '127.0.0.1',
+        'NAME': 'db0v734i7dfi1s',
+        'USER': 'mhlssldoiqycfi',
+        'PASSWORD': '023dce9ee5beb6fe9437aef3004a65a953c608a817f0fa52daabda7b9f3f2289',
+        'HOST': 'ec2-63-32-248-14.eu-west-1.compute.amazonaws.com',
         'PORT': '5432'
     }
- }
+}
+
+# DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#        'NAME': 'rest_api',
+#        'USER': 'profit',
+#        'PASSWORD': '12345',
+#        'HOST': '127.0.0.1',
+#        'PORT': '5432'
+#    }
+# }
 
 
 # Password validation
