@@ -78,10 +78,10 @@ WSGI_APPLICATION = 'rest_api.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'db0v734i7dfi1s',
-        'USER': 'mhlssldoiqycfi',
-        'PASSWORD': '023dce9ee5beb6fe9437aef3004a65a953c608a817f0fa52daabda7b9f3f2289',
-        'HOST': 'ec2-63-32-248-14.eu-west-1.compute.amazonaws.com',
+        'NAME': 'd8q4tffsaf7ki5',
+        'USER': 'uvgtgjznaeqgem',
+        'PASSWORD': 'a1ca75cae1edd58485d4a7c36d96d5f73527146d647fe45997d5344475b4f1a7',
+        'HOST': 'ec2-34-247-172-149.eu-west-1.compute.amazonaws.com',
         'PORT': '5432'
     }
 }
