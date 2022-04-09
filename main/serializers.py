@@ -1,4 +1,4 @@
-from rest_framework.serializers import ModelSerializer
+from rest_framework.serializers import ModelSerializer, CharField
 from django.contrib.auth.models import User
 from .models import *
 
@@ -12,10 +12,11 @@ class CreateUserSerialize(ModelSerializer):
 class CreateNewsSerializer(ModelSerializer):
     class Meta:
         model = Posts
-        fields = ['title', 'link', 'author_name']
+        fields = ['id', 'title', 'link', 'author_name']
 
 
 class CreateCommentSerializer(ModelSerializer):
     class Meta:
         model = Comments
-        fields = ['username', 'comments', 'name']
+        fields = ['id', 'username', 'comments', 'name']
+

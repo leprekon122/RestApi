@@ -22,10 +22,10 @@ class Posts(models.Model):
 class Comments(models.Model):
     username = models.CharField(max_length=255)
     comments = models.TextField()
-    name = models.ForeignKey(Posts, on_delete=models.PROTECT)
+    name = models.ForeignKey(Posts, on_delete=models.PROTECT, null=True)
 
     def __str__(self):
-        return f"{self.username} {self.comments} "
+        return f"{self.username} {self.comments}"
 
     class Meta:
         verbose_name = 'Comments'

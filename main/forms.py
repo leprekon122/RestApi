@@ -1,4 +1,4 @@
-from django.forms import ModelForm, TextInput, EmailInput, PasswordInput, Select
+from django.forms import ModelForm, Textarea, TextInput, EmailInput, PasswordInput, Select
 from django.contrib.auth.models import User
 from .models import *
 
@@ -60,8 +60,12 @@ class CreateCommentForm(ModelForm):
 
         widgets = {
             'username': TextInput(attrs={
-                'class': 'from-control',
+                'class': 'form-control',
                 'placeholder': 'username'
+            }),
+
+            'comments': Textarea(attrs={
+                'class': 'form-control',
             }),
 
             'name': Select(attrs={

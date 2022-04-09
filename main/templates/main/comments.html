@@ -5,25 +5,29 @@
 {%block content%}
 <div class="container">
     <br>
-    <div class="forma">
-        <form method="post">
-            {%csrf_token%}
-            <div class="alert alert-dark">
-                {{form.as_p}}
-                <button class="btn btn-dark" type="submit">comment</button>
-            </div>
-        </form>
-    </div>
-
-    {% for el in model %}
-    <div class="comments_main">
-        <div class="alert alert-success">
-            <h4 id="comment_title">Username: {{el.username}}</h4>
-            <p id="comments">{{el.comments}}</p>
-            <h4 id="News_title">News_title: {{el.name__title}}</h4>
+    <div class="comment_contents">
+        <div class="forma">
+            <form method="post">
+                {%csrf_token%}
+                <div class="alert alert-dark">
+                    {{form.as_p}}
+                    <button class="btn btn-dark" type="submit">comment</button>
+                </div>
+            </form>
         </div>
+
+
+        <div class="comments_main">
+            {% for el in model %}
+            <div class="alert alert-success">
+                <h4 id="comment_title" class="form-control">Username: {{el.username}}</h4>
+                <p id="comments" class="form-control">{{el.comments}}</p>
+                <h4 id="News_title" class="form-control">News_title: {{el.name__title}}</h4>
+            </div>
+            {%endfor%}
+        </div>
+
     </div>
-    {%endfor%}
 
 </div>
 {%endblock%}

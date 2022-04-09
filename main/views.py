@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from rest_framework import generics, mixins, permissions
+from rest_framework import generics, mixins, permissions, viewsets
 from .models import *
 from .serializers import *
 from .forms import *
@@ -37,7 +37,75 @@ class MainPage(generics.GenericAPIView,
         return redirect('main')
 
 
-"""Update POST"""
+"""API for Posts"""
+
+
+class PostViewSets(generics.GenericAPIView,
+                   mixins.CreateModelMixin,
+                   mixins.ListModelMixin):
+    queryset = Posts.objects.all()
+    serializer_class = CreateNewsSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get(self, request, *args, **kwargs):
+        return self.list(request, *args, **kwargs)
+
+    def post(self, request, *args, **kwargs):
+        return self.create(request, *args, **kwargs)
+
+
+class PostDeleteUpdateSets(generics.GenericAPIView,
+                           mixins.RetrieveModelMixin,
+                           mixins.DestroyModelMixin,
+                           mixins.UpdateModelMixin,
+                           ):
+    queryset = Posts.objects.all()
+    serializer_class = CreateNewsSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get(self, request, *args, **kwargs):
+        return self.retrieve(request, *args, **kwargs)
+
+    def put(self, request, *args, **kwargs):
+        return self.update(request, *args, **kwargs)
+
+    def delete(self, request, *args, **kwargs):
+        return self.destroy(request, *args, kwargs)
+
+
+"""Api for comments"""
+
+
+class CommentsViewSet(generics.GenericAPIView,
+                      mixins.ListModelMixin,
+                      mixins.CreateModelMixin):
+    queryset = Comments.objects.all()
+    serializer_class = CreateCommentSerializer
+    permission_classes = [permissions.IsAdminUser]
+
+    def get(self, request, *args, **kwargs):
+        return self.list(request, *args, **kwargs)
+
+    def post(self, request, *args, **kwargs):
+        return self.create(request, *args, **kwargs)
+
+
+class CommentsUpdateDeleteSet(generics.GenericAPIView,
+                              mixins.UpdateModelMixin,
+                              mixins.DestroyModelMixin,
+                              mixins.RetrieveModelMixin):
+    queryset = Comments.objects.values('id', 'username', 'comments', 'name__title')
+    serializer_class = CreateCommentSerializer
+    permission_classes = [permissions.IsAdminUser]
+
+    def get(self, request, *args, **kwargs):
+        return self.retrieve(request, *args, **kwargs)
+
+    def put(self, request, *args, **kwargs):
+        return self.update(request, *args, **kwargs)
+
+    def delete(self, request, *args, **kwargs):
+        return self.destroy(request, *args, **kwargs)
 
 
 class NewsUpdateView(UpdateView):
@@ -71,7 +139,6 @@ class Comment(generics.GenericAPIView,
               mixins.CreateModelMixin):
     serializer_class = CreateCommentSerializer
     permission_classes = [permissions.IsAuthenticated]
-
 
     @staticmethod
     def get(request):

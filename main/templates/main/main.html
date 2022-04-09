@@ -7,15 +7,13 @@
 <div class="container">
 
     <br>
-    <div class="alert alert-dark" id="panel">
+    <div class="alert alert-dark" id="panel" onmouseover="chose_color()" onmouseout="chose_color_out()">
         <a class="btn btn-dark" data-target="#create" data-toggle="modal" id="create_news">Create News</a>
         <a class="btn btn-dark" href="{% url 'comments'%}">Comments</a>
     </div>
 
 
-
-
-    <table class="table table-dark table-bordered table-hover">
+    <table class="table table-dark table-bordered table-hover table-sm text-center" id="table" onmouseover="tables()">
         <thead>
         <tr>
             <th>title</th>
@@ -41,19 +39,19 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Login</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <h5 class="modal-title text-light">Login</h5>
+                    <button type="button" class="btn btn-danger close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <form method="get">
                     {%csrf_token%}
                     <div class="modal-body">
-                        <input type="text" class="form-control" name="username">
+                        <input type="text" class="form-control" name="username"><br>
                         <input type="password" class="form-control" name="password">
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary" name="login" value="login">Login</button>
+                        <button type="submit" class="btn btn-warning text-light" id='login_button' name="login" value="login">Login</button>
                     </div>
                 </form>
             </div>
@@ -64,18 +62,18 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <h5 class="modal-title text-light">Modal title</h5>
+                    <button type="button" class="btn btn-danger close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <form method="post">
                     {%csrf_token%}
-                    <div class="modal-body">
+                    <div class="modal-body text-light">
                         {{form}}
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary" name="Create">Save changes</button>
+                        <button type="submit" class="btn btn-warning text-light" id="save_button" name="Create">Save changes</button>
                     </div>
                 </form>
             </div>
@@ -105,6 +103,17 @@
             return true
         }
  }
+
+ function chose_color(){
+    document.getElementById('panel').style.backgroundColor = '#b85007'
+
+ }
+
+ function chose_color_out(){
+    document.getElementById('panel').style.backgroundColor = '#69330d'
+ }
+
+
 </script>
 
 </div>
