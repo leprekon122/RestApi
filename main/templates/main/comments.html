@@ -9,7 +9,7 @@
         <div class="forma">
             <form method="post">
                 {%csrf_token%}
-                <div class="alert alert-dark">
+                <div class="alert alert-dark text-warning" id="forma">
                     {{form.as_p}}
                     <button class="btn btn-dark" type="submit">comment</button>
                 </div>
