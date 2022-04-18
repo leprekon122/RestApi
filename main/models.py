@@ -25,7 +25,7 @@ class Comments(models.Model):
     name = models.ForeignKey(Posts, on_delete=models.PROTECT, null=True)
 
     def __str__(self):
-        return f"{self.username} {self.comments}"
+        return f"{self.username} {self.comments} {self.name}"
 
     class Meta:
         verbose_name = 'Comments'

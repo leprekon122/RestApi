@@ -5,6 +5,7 @@ from .serializers import *
 from .forms import *
 from django.contrib.auth import authenticate, login
 from django.views.generic import UpdateView
+from django.views.generic import DetailView
 
 
 # Create your views here.
@@ -29,7 +30,6 @@ class MainPage(generics.GenericAPIView,
                 'form': form,
                 'user': users
                 }
-
         return render(request, 'main/main.html', data)
 
     def post(self, request, *args, **kwargs):
@@ -117,19 +117,15 @@ class NewsUpdateView(UpdateView):
 """registration user"""
 
 
-class Registration(generics.GenericAPIView,
-                   mixins.CreateModelMixin):
-    serializer_class = CreateUserSerialize
+def registration(request):
+    if request.method == "POST":
+        form = RegistrForm(request.POST)
+        if form.is_valid():
+            form.save()
+    form = RegistrForm
+    data = {'form': form}
 
-    @staticmethod
-    def get(request):
-        form = RegistrForm
-        data = {'form': form}
-        return render(request, 'main/register.html', data)
-
-    def post(self, request, *args, **kwargs):
-        self.create(request, *args, **kwargs)
-        return redirect('main')
+    return render(request, 'main/register.html', data)
 
 
 """Comment page"""

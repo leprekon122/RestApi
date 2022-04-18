@@ -1,11 +1,12 @@
 FROM python:latest
 
-COPY ./ requirements.txt ./
+WORKDIR /usr/src/app
+COPY requirements.txt ./
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
+COPY . /usr/src/app
 
-COPY . / rest_api ./
 
 
 

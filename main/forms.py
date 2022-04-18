@@ -1,6 +1,7 @@
 from django.forms import ModelForm, Textarea, TextInput, EmailInput, PasswordInput, Select
 from django.contrib.auth.models import User
 from .models import *
+from django.contrib.auth.forms import UserCreationForm
 
 
 class CreateNewsForm(ModelForm):
@@ -27,10 +28,10 @@ class CreateNewsForm(ModelForm):
         }
 
 
-class RegistrForm(ModelForm):
+class RegistrForm(UserCreationForm):
     class Meta:
         model = User
-        fields = ['username', 'password', 'email']
+        fields = ['username', 'password1', 'password2', 'email']
 
         widgets = {
             'username': TextInput(attrs={
@@ -72,7 +73,5 @@ class CreateCommentForm(ModelForm):
                 'class': 'form-select',
 
             }),
-
-
 
         }

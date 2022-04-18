@@ -7,11 +7,12 @@
 <div class="container">
 
     <br>
-    <div class="alert alert-dark" id="panel" onmouseover="chose_color()" onmouseout="chose_color_out()">
-        <a class="btn btn-dark" data-target="#create" data-toggle="modal" id="create_news">Create News</a>
-        <a class="btn btn-dark" href="{% url 'comments'%}">Comments</a>
+    <div class="panel_main">
+        <div class="alert alert-dark" id="panel" onmouseover="chose_color()" onmouseout="chose_color_out()">
+            <a class="btn btn-dark" data-target="#create" data-toggle="modal" id="create_news">Edit News</a>
+            <a class="btn btn-dark" href="{% url 'comments'%}" id="comments_button">Comments</a>
+        </div>
     </div>
-
     <div class="modal" tabindex="-1" role="dialog" id="Login">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -61,11 +62,13 @@
         </div>
     </div>
 
+    <br>
     <div class="news_table">
         {% for item in model%}
-        <div class="alert alert-dark">
+        <div class="alert alert-dark" id="news">
             <div class="news_table_header">
-                <h4>title: <span class="text-light">{{item.title}}</span></h4>
+                <a class="text-light" href="{{item.link}}"><h4>title: <span class="text-light">{{item.title}}</span>
+                </h4></a>
                 <p>creation_date: <span class="text-light">{{item.creation_date}}</span></p>
             </div>
             <div class="news_table_footer">

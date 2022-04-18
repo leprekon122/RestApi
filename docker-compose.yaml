@@ -15,9 +15,17 @@ services:
 
   pgdb:
     image: postgres
+    environment:
+      POSTGRES_DB: rest_api
+      POSTGRES_USER: profit
+      POSTGRES_PASSWORD: 12345
+      POSTGRES_INITDB_ARGS: '-A md5'
+
     ports:
       - '5432:5432'
     container_name: pgdb
+
+
 
 
 
