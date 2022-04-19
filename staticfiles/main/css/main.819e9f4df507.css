@@ -1,0 +1,149 @@
+body {background-image: url('https://images.unsplash.com/photo-1560697529-7236591c0066?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80');
+
+      }
+
+#logo{margin-left:2%}
+body .register_form {width; 100%;
+                     height:100vh;
+                     display:flex;
+                     justify-content:center;
+                     align-items: center}
+
+body .register_form .alert-dark{border-radius:5%;
+                                color:#fff;
+                                background-color: #fca503;
+                                background-image: linear-gradient(to right, #145c51, #a68d14)}
+
+body .panel_main{display:flex;
+                 justify-content:center}
+#create_news:hover {background-image:linear-gradient(to right, #c95504, #26a1c9);
+                   transition-duration: 500ms;
+                   border-radius: 15%;
+                   }
+#comments_button:hover{background-image:linear-gradient(to right, #c95504, #26a1c9);
+                       transition-duration: 500ms;
+                       border-radius: 15%;
+                       }
+
+#create_comment_button:hover {
+                       background-image:linear-gradient(to right, #c95504, #26a1c9);
+                       transition-duration: 500ms;
+                       border-radius: 15%;
+                       }
+
+#news:hover  {transform: scale(1.1);
+              transition-duration: 500ms;
+              }
+
+#panel {background-image: linear-gradient(to right, #69330d, #63a8bf);
+        width: 70%}
+
+#form button{width:100%}
+body .forma {max-width: 700px;
+             }
+
+body .alert-success {background-image: linear-gradient(to right, #11a6bd, #ba8014)}
+
+body .comment_contents {display:flex;
+                        flex-direction: row;
+                        justify-content: space-around
+                        }
+body .forma {width: 27%;
+             height: 20%;}
+
+body .forma button{width:100%}
+
+#forma {background-image: linear-gradient(to right, #167eba,#238014)}
+
+body .comments_main{width:70%;
+                    overflow:auto;
+                    height:90vh
+                    }
+
+#comment_title {background-image: linear-gradient(to right, #14820e, #c2b523);
+                Color:#fff;
+                width: 25%;
+                }
+#comments {overflow-wrap: break-word;
+           background-color: #fff}
+
+
+
+#News_title {background-image: linear-gradient(to right, #14820e, #c2b523);
+             color:#fff;
+             width: 35%}
+
+#user {margin-left:20%}
+
+body .navbar-nav:hover {background-image:linear-gradient(to right, #c95504, #26a1c9) ;
+                        transition-duration:1s;
+                        box-shadow: 0px 5px 10px  yellow;
+                        border-radius:15%;}
+
+
+body .modal-header {background-image:linear-gradient(to right, #a1a12a, #25a6b8) }
+
+body .modal-body {background-image:linear-gradient(to right, #0a8072,#49ad9b, #25a6b8) }
+
+body .modal-footer{background-image: linear-gradient(to right, #25a6b8, #a1a12a)}
+
+#login_button{background-color: #994f0b;
+              width:100%}
+
+#login_button:hover {background-color: #d46f13;
+                     transition-duration: 500ms}
+
+#save_button {background-color: #994f0b;
+              width:100%}
+
+#save_button:hover {background-color: #d46f13}
+
+
+body .news_table{width: 100%;
+                 height: 70vh;
+                 display: flex;
+                 flex-direction:column;
+                 align-items:center;
+                 font-style: italic;
+                 overflow:auto;
+                   }
+
+
+body .news_table .alert-dark{width:45%;
+                        background-color: #47443f;
+                        color:#d1880d}
+
+body .news_table_header {display:flex;
+                        flex-direction:row;
+                        justify-content:space-between}
+
+body .news_table_footer{display: flex;
+                        flex-direction: row;
+                        justify-content: space-between}
+
+
+@media screen and (max-width: 500px){
+    #panel {width: 90%;
+            display:flex;
+            justify-content: space-between}
+
+    #news {width:90%;
+           }
+
+
+    #news:hover {transform: scale(1.1)}
+
+
+    body .comment_contents{display:flex;
+                      flex-direction: column;
+                        }
+
+    body .forma{display: flex;
+                justify-content:center;
+                width:100%;
+                }
+    body .comments_main{width:100%}
+    #comment_title{width: 75%}
+    #News_title{width:85%}
+
+    }

@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'main'
 ]
 
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -75,19 +74,30 @@ WSGI_APPLICATION = 'rest_api.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-
-
+"""deploy creditionals"""
 DATABASES = {
-    'default': {
-        #postgresql_psycopg2
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('db_name.py'),
-        'USER': os.environ.get('db_user.py'),
-        'PASSWORD': os.environ.get('db_password.py'),
-        'HOST': os.environ.get('db_host.py'),
+      'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd8q4tffsaf7ki5',
+        'USER': 'uvgtgjznaeqgem',
+        'PASSWORD': 'a1ca75cae1edd58485d4a7c36d96d5f73527146d647fe45997d5344475b4f1a7',
+        'HOST': 'ec2-34-247-172-149.eu-west-1.compute.amazonaws.com',
         'PORT': '5432'
     }
-}
+ }
+
+
+#DATABASES = {
+#    'default': {
+#        # postgresql_psycopg2
+#        'ENGINE': 'django.db.backends.postgresql',
+#        'NAME': os.environ.get('db_name.py'),
+#        'USER': os.environ.get('db_user.py'),
+#        'PASSWORD': os.environ.get('db_password.py'),
+#        'HOST': os.environ.get('db_host.py'),
+#        'PORT': '5432'
+#    }
+#}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -130,5 +140,3 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-
