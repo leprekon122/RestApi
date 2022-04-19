@@ -41,7 +41,7 @@ function chose_color_out(){
 
 function get_url(){
     var current_url = document.URL
-    if(current_url == 'http://127.0.0.1:8000/'){
+    if(current_url == 'http://rest-api111.herokuapp.com'){
         document.getElementById('create_news').innerHTML='Create News';
 
     }
