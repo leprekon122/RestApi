@@ -2,7 +2,7 @@ body {background-image: url('https://images.unsplash.com/photo-1560697529-723659
 
       }
 
-
+#logo{margin-left:2%}
 body .register_form {width; 100%;
                      height:100vh;
                      display:flex;
@@ -121,3 +121,29 @@ body .news_table_footer{display: flex;
                         flex-direction: row;
                         justify-content: space-between}
 
+
+@media screen and (max-width: 500px){
+    #panel {width: 90%;
+            display:flex;
+            justify-content: space-between}
+
+    #news {width:90%;
+           }
+
+
+    #news:hover {transform: scale(1.1)}
+
+
+    body .comment_contents{display:flex;
+                      flex-direction: column;
+                        }
+
+    body .forma{display: flex;
+                justify-content:center;
+                width:100%;
+                }
+    body .comments_main{width:100%}
+    #comment_title{width: 75%}
+    #News_title{width:85%}
+
+    }

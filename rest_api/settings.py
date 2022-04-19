@@ -26,7 +26,7 @@ SECRET_KEY = os.path.join("rest_api/key.py")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['rest-api111.herokuapp.com']
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -75,28 +75,16 @@ WSGI_APPLICATION = 'rest_api.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-"""deploy db creditionals"""
-#DATABASES = {
-#      'default': {
-#        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#        'NAME': 'd8q4tffsaf7ki5',
-#        'USER': 'uvgtgjznaeqgem',
-#        'PASSWORD': 'a1ca75cae1edd58485d4a7c36d96d5f73527146d647fe45997d5344475b4f1a7',
-#        'HOST': 'ec2-34-247-172-149.eu-west-1.compute.amazonaws.com',
-#        'PORT': '5432'
-#    }
-# }
 
-#'NAME': 'rest_api',
- #       'USER': 'profit',
+
 DATABASES = {
     'default': {
         #postgresql_psycopg2
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd8q4tffsaf7ki5',
-        'USER': 'uvgtgjznaeqgem',
-        'PASSWORD': 'a1ca75cae1edd58485d4a7c36d96d5f73527146d647fe45997d5344475b4f1a7',
-        'HOST': 'ec2-34-247-172-149.eu-west-1.compute.amazonaws.com',
+        'NAME': os.environ.get('db_name.py'),
+        'USER': os.environ.get('db_user.py'),
+        'PASSWORD': os.environ.get('db_password.py'),
+        'HOST': os.environ.get('db_host.py'),
         'PORT': '5432'
     }
 }

@@ -5,7 +5,7 @@ from .serializers import *
 from .forms import *
 from django.contrib.auth import authenticate, login
 from django.views.generic import UpdateView
-from django.views.generic import DetailView
+
 
 
 # Create your views here.
