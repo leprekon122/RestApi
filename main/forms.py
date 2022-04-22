@@ -2,12 +2,16 @@ from django.forms import ModelForm, Textarea, TextInput, EmailInput, PasswordInp
 from django.contrib.auth.models import User
 from .models import *
 from django.contrib.auth.forms import UserCreationForm
+from captcha.fields import CaptchaField
 
 
 class CreateNewsForm(ModelForm):
+    captcha = CaptchaField()
+
     class Meta:
         model = Posts
         fields = ['title', 'link', 'author_name']
+        captcha = CaptchaField()
 
         widgets = {
             'title': TextInput(attrs={
@@ -29,9 +33,12 @@ class CreateNewsForm(ModelForm):
 
 
 class RegistrForm(UserCreationForm):
+    captcha = CaptchaField()
+
     class Meta:
         model = User
         fields = ['username', 'password1', 'password2', 'email']
+        captcha = CaptchaField()
 
         widgets = {
             'username': TextInput(attrs={
@@ -55,10 +62,11 @@ class RegistrForm(UserCreationForm):
 
 
 class CreateCommentForm(ModelForm):
+    captcha = CaptchaField()
+
     class Meta:
         model = Comments
         fields = ['username', 'comments', 'name']
-
         widgets = {
             'username': TextInput(attrs={
                 'class': 'form-control',

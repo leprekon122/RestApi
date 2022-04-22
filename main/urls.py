@@ -6,6 +6,7 @@ from . import views
 
 urlpatterns = [
     path('', views.MainPage.as_view(), name='main'),
+    path('accounts/', include('allauth.urls')),
     path('posts_api/', views.PostViewSets.as_view()),
     path('posts_api/<int:pk>', views.PostDeleteUpdateSets.as_view()),
     path('comments_api/', views.CommentsViewSet.as_view()),
@@ -13,5 +14,5 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('registration/', views.registration, name='register'),
     path('comments/', views.Comment.as_view(), name="comments"),
-    path('UpdatePosts/<int:pk>', views.NewsUpdateView.as_view(), name='news_update'),
+    path('UpdatePosts/<int:pk>', views.NewsUpdateView.as_view(), name='news_update')
 ]

@@ -1,9 +1,10 @@
 {% extends 'main/layout.html'%}
 
-
 {%block title%}Main page{%endblock%}
 
 {%block content%}
+{% load socialaccount %}
+{% providers_media_js %}
 <div class="container">
 
     <br>
@@ -11,7 +12,18 @@
         <div class="alert alert-dark" id="panel" onmouseover="chose_color()" onmouseout="chose_color_out()">
             <a class="btn btn-dark" data-target="#create" data-toggle="modal" id="create_news">Edit News</a>
             <a class="btn btn-dark" href="{% url 'comments'%}" id="comments_button">Comments</a>
+            <form action="http://localhost:8000/accounts/logout/" method="post">
+                {%csrf_token%}
+                <button class="btn btn-danger" type="submit">logout</button>
+            </form>
         </div>
+
+
+        <form action="{% provider_login_url 'google' %}" method="post">
+            {% csrf_token %}
+
+        </form>
+
     </div>
     <div class="modal" tabindex="-1" role="dialog" id="Login">
         <div class="modal-dialog" role="document">
@@ -26,13 +38,28 @@
                     {%csrf_token%}
                     <div class="modal-body">
                         <input type="text" class="form-control" name="username"><br>
-                        <input type="password" class="form-control" name="password">
-                    </div>
-                    <div class="modal-footer">
+                        <input type="password" class="form-control" name="password"><br>
                         <button type="submit" class="btn btn-warning text-light" id='login_button' name="login"
                                 value="login">Login
                         </button>
                     </div>
+                </form>
+                <div class="modal-footer">
+                    <form method="post" action="{% provider_login_url 'google'  %}">
+                        {%csrf_token%}
+                        <button type="submit" class="btn btn-dark "><img
+                                src="https://cdn-icons-png.flaticon.com/512/281/281764.png" width="26px"
+                                height="25px"> Sign in with google
+                        </button>
+                    </form>
+                    <form method="post" action="{% provider_login_url 'facebook'  %}">
+                        {%csrf_token%}
+                        <button type="submit" class="btn btn-light"><img
+                                src="https://e7.pngegg.com/pngimages/635/883/png-clipart-social-media-facebook-computer-icons-like-button-enes-batur-blue-rectangle-thumbnail.png" width="30px"
+                                height="25px"> Sign in with Facebook
+                        </button>
+                    </form>
+                </div>
                 </form>
             </div>
         </div>

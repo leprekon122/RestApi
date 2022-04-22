@@ -15,7 +15,8 @@ body .register_form .alert-dark{border-radius:5%;
                                 background-image: linear-gradient(to right, #145c51, #a68d14)}
 
 body .panel_main{display:flex;
-                 justify-content:center}
+                 justify-content:center;
+                 }
 #create_news:hover {background-image:linear-gradient(to right, #c95504, #26a1c9);
                    transition-duration: 500ms;
                    border-radius: 15%;
@@ -36,7 +37,10 @@ body .panel_main{display:flex;
               }
 
 #panel {background-image: linear-gradient(to right, #69330d, #63a8bf);
-        width: 70%}
+        width: 70%;
+        display:flex;
+        flex-direction:row;
+        justify-content: space-between}
 
 #form button{width:100%}
 body .forma {max-width: 700px;
@@ -121,6 +125,8 @@ body .news_table_footer{display: flex;
                         flex-direction: row;
                         justify-content: space-between}
 
+body .modal-footer{display:flex;
+                   justify-content: space-around}
 
 @media screen and (max-width: 500px){
     #panel {width: 90%;
@@ -147,3 +153,4 @@ body .news_table_footer{display: flex;
     #News_title{width:85%}
 
     }
+

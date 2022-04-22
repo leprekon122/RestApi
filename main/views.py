@@ -1,17 +1,22 @@
 from django.shortcuts import render, redirect
 from rest_framework import generics, mixins, permissions, viewsets
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication
+
 from .models import *
 from .serializers import *
 from .forms import *
 from django.contrib.auth import authenticate, login
 from django.views.generic import UpdateView
+from captcha.fields import CaptchaField
 
+from rest_framework.response import Response
 
 
 # Create your views here.
 class MainPage(generics.GenericAPIView,
                mixins.CreateModelMixin):
     serializer_class = CreateNewsSerializer
+    authentication_classes = [SessionAuthentication, BasicAuthentication]
 
     @staticmethod
     def get(request):
@@ -28,7 +33,7 @@ class MainPage(generics.GenericAPIView,
         users = request.user
         data = {"model": model,
                 'form': form,
-                'user': users
+                'user': users,
                 }
         return render(request, 'main/main.html', data)
 
