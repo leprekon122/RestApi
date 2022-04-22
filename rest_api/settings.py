@@ -51,11 +51,11 @@ INSTALLED_APPS = [
 
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '909548435939-7037e8g3uiu9ktroiqje8pn38q5vr8fq.apps.googleusercontent.com' #'605176420122-t1niqvg1ere0l5gafmkj74mq3v4ku919.apps.googleusercontent.com'
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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' #'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'
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '605176420122-t1niqvg1ere0l5gafmkj74mq3v4ku919.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
 
-SOCIAL_AUTH_FACEBOOK_KEY = '1162353907848060'    #'496282718869351' local
-SOCIAL_AUTH_FACEBOOK_SECRET = '451c2d6f958a1927dee36e99fd1ba187' # 'c20a7893526b999abaa5d3137a15ebb8'local
+SOCIAL_AUTH_FACEBOOK_KEY = '496282718869351'
+SOCIAL_AUTH_FACEBOOK_SECRET = 'c20a7893526b999abaa5d3137a15ebb8'
 
 
 
@@ -98,29 +98,29 @@ WSGI_APPLICATION = 'rest_api.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 """deploy creditionals"""
-DATABASES = {
-      'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd8q4tffsaf7ki5',
-        'USER': 'uvgtgjznaeqgem',
-        'PASSWORD': 'a1ca75cae1edd58485d4a7c36d96d5f73527146d647fe45997d5344475b4f1a7',
-        'HOST': 'ec2-34-247-172-149.eu-west-1.compute.amazonaws.com',
-        'PORT': '5432'
-    }
- }
-
-
 #DATABASES = {
-#    'default': {
-#        # postgresql_psycopg2
-#        'ENGINE': 'django.db.backends.postgresql',
-#        'NAME': os.environ.get('db_name.py'),
-#        'USER': os.environ.get('db_user.py'),
-#        'PASSWORD': os.environ.get('db_password.py'),
-#        'HOST': os.environ.get('db_host.py'),
+#      'default': {
+#        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#        'NAME': 'd8q4tffsaf7ki5',
+#        'USER': 'uvgtgjznaeqgem',
+#        'PASSWORD': 'a1ca75cae1edd58485d4a7c36d96d5f73527146d647fe45997d5344475b4f1a7',
+#        'HOST': 'ec2-34-247-172-149.eu-west-1.compute.amazonaws.com',
 #        'PORT': '5432'
 #    }
-#}
+# }
+
+
+DATABASES = {
+    'default': {
+        # postgresql_psycopg2
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('db_name.py'),
+        'USER': os.environ.get('db_user.py'),
+        'PASSWORD': os.environ.get('db_password.py'),
+        'HOST': os.environ.get('db_host.py'),
+        'PORT': '5432'
+    }
+}
 """auth with social media"""
 AUTHENTICATION_BACKENDS = [
     # Needed to login by username in Django admin, regardless of `allauth`
