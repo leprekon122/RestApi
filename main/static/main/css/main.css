@@ -17,12 +17,22 @@ body .register_form .alert-dark{border-radius:5%;
 body .panel_main{display:flex;
                  justify-content:center;
                  }
+
+#google{transition:1s;}
+#google:hover {transition: 1s;
+               transform:scale(1.1);
+               border-radius: 10%;
+               background-image:linear-gradient(to right, #c95504, #26a1c9)
+               }
+
+
+
 #create_news:hover {background-image:linear-gradient(to right, #c95504, #26a1c9);
-                   transition-duration: 500ms;
+                   transition: 1s;
                    border-radius: 15%;
                    }
 #comments_button:hover{background-image:linear-gradient(to right, #c95504, #26a1c9);
-                       transition-duration: 500ms;
+                       transition: 1s;
                        border-radius: 15%;
                        }
 
@@ -126,7 +136,7 @@ body .news_table_footer{display: flex;
                         justify-content: space-between}
 
 body .modal-footer{display:flex;
-                   justify-content: space-around}
+                   justify-content: center}
 
 @media screen and (max-width: 500px){
     #panel {width: 90%;

@@ -47,16 +47,9 @@
                 <div class="modal-footer">
                     <form method="post" action="{% provider_login_url 'google'  %}">
                         {%csrf_token%}
-                        <button type="submit" class="btn btn-dark "><img
+                        <button type="submit" class="btn btn-dark " id="google"><img
                                 src="https://cdn-icons-png.flaticon.com/512/281/281764.png" width="26px"
                                 height="25px"> Sign in with google
-                        </button>
-                    </form>
-                    <form method="post" action="{% provider_login_url 'facebook'  %}">
-                        {%csrf_token%}
-                        <button type="submit" class="btn btn-light"><img
-                                src="https://e7.pngegg.com/pngimages/635/883/png-clipart-social-media-facebook-computer-icons-like-button-enes-batur-blue-rectangle-thumbnail.png" width="30px"
-                                height="25px"> Sign in with Facebook
                         </button>
                     </form>
                 </div>
