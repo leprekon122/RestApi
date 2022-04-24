@@ -61,6 +61,9 @@ body .panel_main{display:flex;
                    transition: 1s;
                    border-radius: 15%;
                    }
+#comments_button{display:none}
+#log_out{display:none}
+
 #comments_button:hover{background-image:linear-gradient(to right, #c95504, #26a1c9);
                        transition: 1s;
                        border-radius: 15%;
@@ -193,4 +196,6 @@ body .modal-footer{display:flex;
     #News_title{width:85%}
 
     }
+
+
 
