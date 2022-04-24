@@ -50,7 +50,6 @@ get_url()
 
 function log_btn(){
     var users = document.getElementById('username').innerHTML
-    console.log(users)
     if(users != 'AnonymousUser'){
         document.getElementById('login_nav').style.display='none';
     }
