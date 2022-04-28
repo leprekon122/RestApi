@@ -1,11 +1,14 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 # Create your models here.
+
+
 class Posts(models.Model):
     title = models.CharField(max_length=60)
     link = models.TextField()
-    creation_date = models.DateTimeField(auto_now=True)
+    creation_date = models.DateField(auto_now_add=True)
     author_name = models.CharField(max_length=60)
 
     def __str__(self):
@@ -22,7 +25,8 @@ class Posts(models.Model):
 class Comments(models.Model):
     username = models.CharField(max_length=255)
     comments = models.TextField()
-    name = models.ForeignKey(Posts, on_delete=models.PROTECT, null=True,)
+    create_date = models.DateField(auto_now_add=True)
+    name = models.ManyToManyField(Posts, related_name='title_post')
 
     def __str__(self):
         return f"{self.username} {self.comments} {self.name}"

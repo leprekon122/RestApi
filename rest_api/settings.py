@@ -46,8 +46,16 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
+    #'django_elasticsearch_dsl'
     #'allauth.socialaccount.providers.facebook'
 ]
+
+#ELASTICSEARCH_DSL = {
+#    'default': {
+#        'hosts': 'localhost:9200'
+#    },
+#}
+
 
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
@@ -79,7 +87,7 @@ ROOT_URLCONF = 'rest_api.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -99,19 +107,30 @@ WSGI_APPLICATION = 'rest_api.wsgi.application'
 
 """deploy creditionals"""
 
-
-
 DATABASES = {
     'default': {
         # postgresql_psycopg2
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('db_name.py'),
-        'USER': os.environ.get('db_user.py'),
-        'PASSWORD': os.environ.get('db_password.py'),
-        'HOST': os.environ.get('db_host.py'),
+        'NAME': 'd8q4tffsaf7ki5',
+        'USER': 'uvgtgjznaeqgem',
+        'PASSWORD': 'a1ca75cae1edd58485d4a7c36d96d5f73527146d647fe45997d5344475b4f1a7',
+        'HOST': 'ec2-34-247-172-149.eu-west-1.compute.amazonaws.com',
         'PORT': '5432'
     }
 }
+
+
+#DATABASES = {
+#    'default': {
+#        # postgresql_psycopg2
+#        'ENGINE': 'django.db.backends.postgresql',
+#        'NAME': os.environ.get('db_name.py'),
+#        'USER': os.environ.get('db_user.py'),
+#        'PASSWORD': os.environ.get('db_password.py'),
+#        'HOST': os.environ.get('db_host.py'),
+#        'PORT': '5432'
+#    }
+#}
 
 """auth with social media"""
 AUTHENTICATION_BACKENDS = [

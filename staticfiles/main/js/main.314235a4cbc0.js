@@ -58,9 +58,7 @@ function log_btn(){
         document.getElementById('login_nav').style.display='none';
     }
 }
-log_btn();
-
-
+log_btn()
 
 
 

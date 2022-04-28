@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from rest_framework import generics, mixins, permissions, viewsets
+from rest_framework import generics, mixins, permissions
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 
 from .models import *
@@ -35,11 +35,38 @@ class MainPage(generics.GenericAPIView,
                 'form': form,
                 'user': users,
                 }
+
+        if request.GET.get('req'):
+            comment_data = Comments.objects.filter(name__title=f"{request.GET.get('req')}").values('id', 'username',
+                                                                                                   'comments',
+                                                                                                   'name__title',
+                                                                                                   'name__link',
+                                                                                                   'create_date')
+
+            form = CreateCommentForm
+            data = {'model': comment_data,
+                    'form': form}
+            print('hello')
+
+            return render(request, 'main/detail_posts.html', data)
+
         return render(request, 'main/main.html', data)
 
     def post(self, request, *args, **kwargs):
         self.create(request, *args, **kwargs)
         return redirect('main')
+
+
+class DetailComment(generics.GenericAPIView,
+                    mixins.CreateModelMixin):
+    serializer_class = CreateCommentSerializer
+
+    @staticmethod
+    def get(request):
+        form = CreateCommentForm
+        data = {'form': form,
+                }
+        return render(request, 'main/detail_posts.html', data)
 
 
 """API for Posts"""
@@ -151,4 +178,4 @@ class Comment(generics.GenericAPIView,
 
     def post(self, request, *args, **kwargs):
         self.create(request, *args, **kwargs)
-        return redirect('comments')
+        return redirect('main')

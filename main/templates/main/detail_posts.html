@@ -1,0 +1,33 @@
+{% extends 'main/layout.html'%}
+
+{%block title%}Detail info{%endblock%}
+
+{%block content%}
+<div class="container" id="comment_media">
+    <br>
+    <div class="comment_contents">
+        <div class="forma">
+            <form method="post" action="comments/">
+                {%csrf_token%}
+                <div class="alert alert-dark text-light" id="forma">
+                    {{form.as_p}}
+                    <button class="btn btn-dark" type="submit" id="create_comment_button">comment</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="comments_main">
+            {% for el in model %}
+            <div class="alert alert alert-success">
+                <h4 id="comment_title">{{el.username}}</h4>
+                <p id="comments" class="form-control">{{el.comments}}</p>
+                <div id="comment_footer">
+                    <h4 id="News_title">{{el.name__title}}</h4>
+                    <h5 id="Create_date_comment">Create date: {{el.create_date}}</h5>
+                </div>
+            </div>
+            {%endfor%}
+        </div>
+
+    </div>
+    {%endblock%}

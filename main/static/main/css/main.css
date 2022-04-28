@@ -154,7 +154,13 @@ body .news_table{width: 100%;
                  font-style: italic;
                  overflow:auto;
                    }
-
+#Create_date_comment{border-radius: 10%;
+                     background-image: linear-gradient(to right top, #2b60b5, #179920);
+                     width: 40%;
+                     color:#fff}
+#comment_footer {display: flex;
+                 flex-direction: row;
+                 justify-content: space-between}
 
 body .news_table .alert-dark{width:45%;
                         background-color: #47443f;

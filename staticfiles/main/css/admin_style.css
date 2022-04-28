@@ -1,0 +1,47 @@
+body {
+      position:relative;
+      animation-name: background-animation;
+      animation-duration: 30s;
+      animation-timing-function: easy-in;
+      animation-iteration-count: infinite;
+      animation-direction: alternate-reverse;
+
+}
+
+#header {background-color: #292e36}
+#changelist {background: none }
+
+body .field-username{background-color:black}
+body .field-comments{background-color:black}
+body .field-name{background-color:black}
+
+#content h1{background-color: black;
+            width: 35%}
+#content h2{background-color: black}
+
+body .module{background-color: #fff}
+
+@keyframes background-animation{
+    0%{
+        background-image: url('/static/main/images/photo-1560697529-7236591c0066.avif');
+       }
+
+    20%{
+        background-image: url('/static/main/images/2.avif');
+        }
+    40%{
+        background-image: url('/static/main/images/3.avif');
+        }
+    60%{
+        background-image: url('/static/main/images/4.avif');
+        }
+    80%{
+        background-image: url('/static/main/images/5.avif');
+        }
+    100%{
+        background-image: url('/static/main/images/6.avif');
+        }
+}
+
+
+

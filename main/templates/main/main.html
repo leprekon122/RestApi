@@ -94,6 +94,10 @@
             <div class="news_table_footer">
                 <h4>author_name: <span class="text-light">{{item.author_name}}</span></h4>
                 <a class="btn btn-warning" href="{% url 'news_update' item.id%}" onclick="return edits()">Edit</a>
+                <form method="get">
+                    {%csrf_token%}
+                    <button class="btn btn-dark" type="submit" name="req" value="{{item.title}}">detail</button>
+                </form>
             </div>
         </div>
         {%endfor%}
