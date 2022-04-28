@@ -12,7 +12,7 @@
         <div class="alert alert-dark" id="panel" onmouseover="chose_color()" onmouseout="chose_color_out()">
             <a class="btn btn-dark" data-target="#create" data-toggle="modal" id="create_news">Edit News</a>
             <a class="btn btn-dark" href="{% url 'comments'%}" id="comments_button">Comments</a>
-            <form action="https://https://rest-api111.herokuapp.com/accounts/logout/" method="post" id="log_out">
+            <form action="https://rest-api111.herokuapp.com/accounts/logout/" method="post" id="log_out">
                 {%csrf_token%}
                 <button class="btn btn-danger" type="submit" id="logout">logout</button>
             </form>
