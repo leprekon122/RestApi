@@ -42,11 +42,9 @@ class MainPage(generics.GenericAPIView,
                                                                                                    'name__title',
                                                                                                    'name__link',
                                                                                                    'create_date')
-
             form = CreateCommentForm
             data = {'model': comment_data,
                     'form': form}
-            print('hello')
 
             return render(request, 'main/detail_posts.html', data)
 
